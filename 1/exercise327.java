@@ -33,8 +33,6 @@ public static void main(String[] args)
      */
     if (inputX < 0
     ||  inputY < 0
-    ||  inputX > exercise327._triangleX
-    ||  inputY > exercise327._triangleY
     ||  inputY > triangleHypotenuse
     ) {
         System.out.println("The point is not within the triangle.");
