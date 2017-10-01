@@ -3,7 +3,6 @@
  * exercise: 6.27: Emirp
  * author:   Jonathan Smalls <jon@smalls.rocks>
  */
-import java.util.Scanner;
 public class exercise627
 {
 /**
