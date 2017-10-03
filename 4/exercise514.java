@@ -20,12 +20,15 @@ public static void main(String[] args)
      * This loop will run until we have checked all input integers.
      */
     int value = 0;
-    // TODO This loop is infinite, and I can not figure out why.
-    while (true == userInput.hasNextInt()) {
+    while (userInput.hasNextInt()) {
         value = userInput.nextInt();
+        if (value == 0) {
+            break;
+        }
         if (value > exercise514.value) {
             exercise514.value      = value;
             exercise514.valueCount = 1;
+            continue;
         }
         if (value == exercise514.value) {
             exercise514.valueCount++;
