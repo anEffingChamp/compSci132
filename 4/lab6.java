@@ -23,6 +23,43 @@ public class lab6
  */
 public static void main(String[] args)
 {
+    Scanner userInput = new Scanner(System.in);
+    System.out.print("Please enter an integer to test the MyInteger object: ");
+    int input         = userInput.nextInt();
+    boolean inputEven = true;
+    if (1 == input % 2) {
+        inputEven = false;
+    }
+    MyInteger userObject = new MyInteger(input);
+    if (inputEven               == MyInteger.isEven()
+    &&  inputEven               == MyInteger.isEven(input)
+    &&  inputEven               == MyInteger.isOdd()
+    &&  inputEven               == MyInteger.isOdd(input)
+    &&  isPrime((double) input) == MyInteger.isPrime(input)
+    ) {
+        System.out.println("There are no object errors.");
+        return;
+    }
+    System.out.println("There are errors in the object.");
+}
+/**
+ * isPrime() determines whether an input is a prime number. Its input must be a
+ * double for accurate division.
+ */
+public static boolean isPrime(double input) {
+    boolean output = true;
+    if (0 == input % 2) {
+        output = false;
+    }
+    for (int loop = 3;
+    loop <= Math.sqrt(input);
+    loop += 2
+    ) {
+        if (0 == input % loop) {
+            output = false;
+        }
+    }
+    return output;
 }
 }
 class MyInteger
@@ -44,11 +81,29 @@ public static int getInteger()
 }
 /*
  * Methods isEven(), isOdd(), and isPrime() that return true if the value is even, odd, or prime, respectively.
+ * Static methods isEven(int), isOdd(int), and isPrime(int) that return true if the specified value is even, odd, or prime, respectively.
+ * Static methods isEven(MyInteger), isOdd(MyInteger), and isPrime(MyInteger) that return true if the specified value is even, odd, or prime, respectively.
  */
 public static boolean isEven()
 {
     boolean output = false;
     if (0 == MyInteger._integer % 2) {
+        output = true;
+    }
+    return output;
+}
+public static boolean isEven(int input)
+{
+    boolean output = false;
+    if (0 == input % 2) {
+        output = true;
+    }
+    return output;
+}
+public boolean isEven(Object MyInteger)
+{
+    boolean output = false;
+    if (0 == this._integer % 2) {
         output = true;
     }
     return output;
@@ -61,12 +116,52 @@ public static boolean isOdd()
     }
     return output;
 }
+public static boolean isOdd(int input)
+{
+    boolean output = false;
+    if (1 == input % 2) {
+        output = true;
+    }
+    return output;
+}
 /**
  * isPrime() determines whether an input is a prime number. Its input must be a
  * double for accurate division.
  */
 public static boolean isPrime() {
     double input   = (double) MyInteger._integer;
+    boolean output = true;
+    if (0 == input % 2) {
+        output = false;
+    }
+    for (int loop = 3;
+    loop <= Math.sqrt(input);
+    loop += 2
+    ) {
+        if (0 == input % loop) {
+            output = false;
+        }
+    }
+    return output;
+}
+public static boolean isPrime(int inputInteger) {
+    double input   = (double) inputInteger;
+    boolean output = true;
+    if (0 == input % 2) {
+        output = false;
+    }
+    for (int loop = 3;
+    loop <= Math.sqrt(input);
+    loop += 2
+    ) {
+        if (0 == input % loop) {
+            output = false;
+        }
+    }
+    return output;
+}
+public boolean isPrime(Object MyInteger) {
+    double input   = (double) this._integer;
     boolean output = true;
     if (0 == input % 2) {
         output = false;
@@ -92,13 +187,10 @@ public static boolean equals(int input)
     }
     return output;
 }
-public static boolean equals(String input)
+public boolean equals(MyInteger input)
 {
     boolean output = false;
-    Class inputClass = Class.forName(input);
-    if (true                == inputClass.isInstance(MyInteger)
-    &&  inputClass._integer == MyInteger._integer
-    ) {
+    if (input == this) {
         output = true;
     }
     return output;
