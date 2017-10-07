@@ -6,7 +6,7 @@
 import java.util.Scanner;
 public class exercise47
 {
-private static int _angleInteror = 360 / 5;
+private static double _angleInteror = 360 / 5;
 /**
  * This program calculates the coordinates of the four remaining points of a
  * pentagon, assuming that:
@@ -62,9 +62,8 @@ public static void main(String[] args)
          * Then we calculate the angle within our right triangle. It can not be
          * greater than 45.
          */
+        triangleInterior = triangleInterior % 90;
         if (45 <= triangleInterior) {
-            triangleInterior = triangleInterior % 90;
-
             pointX = pointXSign * (circleRadius * Math.sin(triangleInterior));
             pointY = pointYSign * (circleRadius * Math.cos(triangleInterior));
         } else {
