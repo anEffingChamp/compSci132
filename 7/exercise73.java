@@ -21,7 +21,7 @@ public static void main(String[] args)
     Scanner userInput = new Scanner(System.in);
     System.out.print(
         "Please enter a list of space separated integers between 1 and 100. "
-        + "The list must end with 0."
+        + "The list must end with 0. "
     );
     while (true == userInput.hasNextInt()) {
         int userInteger = userInput.nextInt();
@@ -30,6 +30,7 @@ public static void main(String[] args)
         }
         exercise73.frequency[userInteger - 1]++;
     }
+    System.out.println();
     for (int loop = 0;
     loop < exercise73.frequency.length;
     loop++
